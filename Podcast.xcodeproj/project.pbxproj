@@ -13,6 +13,7 @@
 		374E5F8620906B2300A5E5C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 374E5F8520906B2300A5E5C8 /* Assets.xcassets */; };
 		374E5F8920906B2300A5E5C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 374E5F8720906B2300A5E5C8 /* LaunchScreen.storyboard */; };
 		374E5F9420906B2300A5E5C8 /* PodcastUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374E5F9320906B2300A5E5C8 /* PodcastUITests.swift */; };
+		374E5F9F2090746800A5E5C8 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374E5F9E2090746800A5E5C8 /* MainTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		374E5F8F20906B2300A5E5C8 /* PodcastUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PodcastUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		374E5F9320906B2300A5E5C8 /* PodcastUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastUITests.swift; sourceTree = "<group>"; };
 		374E5F9520906B2300A5E5C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		374E5F9E2090746800A5E5C8 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				374E5F7E20906B2300A5E5C8 /* AppDelegate.swift */,
+				374E5F9E2090746800A5E5C8 /* MainTabBarController.swift */,
 				374E5F8020906B2300A5E5C8 /* ViewController.swift */,
 				374E5F8220906B2300A5E5C8 /* Main.storyboard */,
 				374E5F8520906B2300A5E5C8 /* Assets.xcassets */,
@@ -199,6 +202,7 @@
 			files = (
 				374E5F8120906B2300A5E5C8 /* ViewController.swift in Sources */,
 				374E5F7F20906B2300A5E5C8 /* AppDelegate.swift in Sources */,
+				374E5F9F2090746800A5E5C8 /* MainTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
