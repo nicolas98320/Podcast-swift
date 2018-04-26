@@ -34,7 +34,7 @@ class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
   
   fileprivate func setupSearchBar() {
     navigationItem.searchController = searchController
-    navigationItem.hidesSearchBarWhenScrolling = true
+    navigationItem.hidesSearchBarWhenScrolling = false
     searchController.dimsBackgroundDuringPresentation = false
     searchController.searchBar.delegate = self
   }
