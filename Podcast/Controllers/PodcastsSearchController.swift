@@ -10,12 +10,7 @@ import UIKit
 
 class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
   
-  var podcasts = [
-    Podcast(trackName: "Track Name", artistName: "Artist Name"),
-    Podcast(trackName: "Track Name", artistName: "Artist Name"),
-    Podcast(trackName: "Track Name", artistName: "Artist Name"),
-    Podcast(trackName: "Track Name", artistName: "Artist Name"),
-    ]
+  var podcasts: [Podcast] = []
   
   let searchController = UISearchController(searchResultsController: nil)
   
@@ -27,7 +22,11 @@ class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
   }
   
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-    print(searchText)
+    APIService.shared.fetchPodcasts(searchText: searchText) { [weak self] podcasts in
+      guard let `self` = self else {return}
+      self.podcasts = podcasts
+      self.tableView.reloadData()
+    }
   }
   
   //MARK:- Setup PodcastsSearchController
