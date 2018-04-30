@@ -11,7 +11,9 @@ import UIKit
 class PodcastTableViewCell: UITableViewCell {
   
   func configure(_ podcast: Podcast) {
-    textLabel?.text = "\(podcast.trackName)\n\(podcast.artistName)"
+    if let trackName = podcast.trackName, let artistName = podcast.artistName {
+      textLabel?.text = "\(trackName)\n\(artistName)"
+    }
     textLabel?.numberOfLines = -1
     imageView?.image = #imageLiteral(resourceName: "appicon")
   }
