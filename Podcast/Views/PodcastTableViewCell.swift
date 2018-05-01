@@ -7,15 +7,29 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PodcastTableViewCell: UITableViewCell {
   
+  @IBOutlet weak var podcastImageView: UIImageView!
+  @IBOutlet weak var trackNameLabel: UILabel!
+  @IBOutlet weak var episodeCountLabel: UILabel!
+  @IBOutlet weak var artistNameLabel: UILabel!
+  
   func configure(_ podcast: Podcast) {
-    if let trackName = podcast.trackName, let artistName = podcast.artistName {
-      textLabel?.text = "\(trackName)\n\(artistName)"
+    trackNameLabel.text = podcast.trackName
+    artistNameLabel.text = podcast.artistName
+    
+    if let trackCount = podcast.trackCount {
+      if trackCount == 0 || trackCount == 1 {
+        episodeCountLabel.text = "\(trackCount) Episode"
+      } else {
+        episodeCountLabel.text = "\(trackCount) Episodes"
+      }
     }
-    textLabel?.numberOfLines = -1
-    imageView?.image = #imageLiteral(resourceName: "appicon")
+    
+    guard let url = URL(string: podcast.artworkUrl600 ?? "") else { return }
+    podcastImageView.kf.setImage(with: url)
   }
   
 }
