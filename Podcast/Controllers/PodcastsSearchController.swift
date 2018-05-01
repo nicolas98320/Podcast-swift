@@ -39,7 +39,7 @@ class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
   }
   
   fileprivate func setupTableView() {
-    tableView.register(PodcastTableViewCell.self, forCellReuseIdentifier: PodcastTableViewCell.reuseIdentifier)
+    tableView.register(PodcastTableViewCell.nib, forCellReuseIdentifier: PodcastTableViewCell.reuseIdentifier)
     tableView.tableFooterView = UIView()
   }
   
@@ -54,5 +54,13 @@ class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
     cell.configure(podcasts[indexPath.row])
     return cell
   }
+  
+  //MARK:- Variable height support
+  
+  override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 132
+  }
+  
 }
+
 

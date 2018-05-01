@@ -20,6 +20,8 @@
 		374E5F8920906B2300A5E5C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 374E5F8720906B2300A5E5C8 /* LaunchScreen.storyboard */; };
 		374E5F9420906B2300A5E5C8 /* PodcastUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374E5F9320906B2300A5E5C8 /* PodcastUITests.swift */; };
 		374E5F9F2090746800A5E5C8 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374E5F9E2090746800A5E5C8 /* MainTabBarController.swift */; };
+		37D226EA2098665800F76331 /* PodcastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37D226E92098665800F76331 /* PodcastTableViewCell.xib */; };
+		37D226ED20986D2000F76331 /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D226EC20986D2000F76331 /* UIView+Nib.swift */; };
 		4DF2788BBF113A2D34F03829 /* Pods_Podcast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C39D97CB8D70AE2FA4C9221C /* Pods_Podcast.framework */; };
 		ADC1523C73073F22DC8FECD1 /* Pods_PodcastUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD4B8849EC9250B38525C19 /* Pods_PodcastUITests.framework */; };
 /* End PBXBuildFile section */
@@ -52,6 +54,8 @@
 		374E5F9320906B2300A5E5C8 /* PodcastUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastUITests.swift; sourceTree = "<group>"; };
 		374E5F9520906B2300A5E5C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		374E5F9E2090746800A5E5C8 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		37D226E92098665800F76331 /* PodcastTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PodcastTableViewCell.xib; sourceTree = "<group>"; };
+		37D226EC20986D2000F76331 /* UIView+Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
 		77A3A684D27CDB6EEFDDE6C2 /* Pods-PodcastUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodcastUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PodcastUITests/Pods-PodcastUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9EE961C49D758124F793F90C /* Pods-PodcastUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodcastUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PodcastUITests/Pods-PodcastUITests.release.xcconfig"; sourceTree = "<group>"; };
 		ACD4B8849EC9250B38525C19 /* Pods_PodcastUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PodcastUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				373E972620909BF600E9A5F9 /* ReuseIdentifier.swift */,
+				37D226EC20986D2000F76331 /* UIView+Nib.swift */,
 				3701766A20974C0200218DDE /* Constants.swift */,
 			);
 			path = Helpers;
@@ -119,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				373E972920909C9500E9A5F9 /* PodcastTableViewCell.swift */,
+				37D226E92098665800F76331 /* PodcastTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -275,6 +281,7 @@
 			files = (
 				374E5F8920906B2300A5E5C8 /* LaunchScreen.storyboard in Resources */,
 				374E5F8620906B2300A5E5C8 /* Assets.xcassets in Resources */,
+				37D226EA2098665800F76331 /* PodcastTableViewCell.xib in Resources */,
 				374E5F8420906B2300A5E5C8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,10 +322,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Podcast/Pods-Podcast-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -358,6 +367,7 @@
 				374E5F9F2090746800A5E5C8 /* MainTabBarController.swift in Sources */,
 				3701766920974BCB00218DDE /* API.swift in Sources */,
 				373E9724209094FC00E9A5F9 /* Podcast.swift in Sources */,
+				37D226ED20986D2000F76331 /* UIView+Nib.swift in Sources */,
 				3701766B20974C0200218DDE /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
