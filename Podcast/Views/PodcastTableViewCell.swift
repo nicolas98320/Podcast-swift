@@ -21,15 +21,15 @@ class PodcastTableViewCell: UITableViewCell {
     artistNameLabel.text = podcast.artistName
     
     if let trackCount = podcast.trackCount {
-      if trackCount == 0 || trackCount == 1 {
+      if trackCount <= 1 {
         episodeCountLabel.text = "\(trackCount) Episode"
       } else {
         episodeCountLabel.text = "\(trackCount) Episodes"
       }
     }
     
-    guard let url = URL(string: podcast.artworkUrl600 ?? "") else { return }
-    podcastImageView.kf.setImage(with: url)
+    guard let secureImageUrl = URL(string: podcast.artworkUrl600?.toSecureHTTPS() ?? "") else { return }
+    podcastImageView.kf.setImage(with: secureImageUrl)
   }
   
 }
