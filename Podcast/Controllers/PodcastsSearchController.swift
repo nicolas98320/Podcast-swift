@@ -23,15 +23,18 @@ class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
   
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
     APIService.shared.fetchPodcasts(searchText: searchText) { [weak self] podcasts in
-      guard let `self` = self else {return}
+      guard let `self` = self else { return }
       self.podcasts = podcasts
-      self.tableView.reloadData()
+      DispatchQueue.main.async {
+        self.tableView.reloadData()
+      }
     }
   }
   
   //MARK:- Setup PodcastsSearchController
   
   fileprivate func setupSearchBar() {
+    self.definesPresentationContext = true
     navigationItem.searchController = searchController
     navigationItem.hidesSearchBarWhenScrolling = false
     searchController.dimsBackgroundDuringPresentation = false
@@ -53,6 +56,12 @@ class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
     let cell = tableView.dequeueReusableCell(withIdentifier: PodcastTableViewCell.reuseIdentifier, for: indexPath) as! PodcastTableViewCell
     cell.configure(podcasts[indexPath.row])
     return cell
+  }
+  
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let episodesViewController = EpisodesViewController()
+    episodesViewController.podcast = podcasts[indexPath.row]
+    navigationController?.pushViewController(episodesViewController, animated: true)
   }
   
   //MARK:- Variable height support
