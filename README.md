@@ -9,9 +9,10 @@
 
 # Core Features
 
+- Cocoapods integration
 - Alamofire for network requests 
-- AVKit Audio Player libraries for audio playback
+- FeedKit for XML parsing
 - Search through iTunes API
 - Parsing JSON asynchronously
-- XML parsing Pods through Cocoapods integration
+- AVKit Audio Player libraries for audio playback
 - User Favorites persistence with UserDefaults
