@@ -15,8 +15,7 @@ class APIService {
   static let shared = APIService()
   
   func fetchEpisodes(feedUrl: String, completionHandler: @escaping ([Episode]) -> ()) {
-    let secureFeedUrl = feedUrl.toSecureHTTPS()
-    guard let url = URL(string: secureFeedUrl) else { return }
+    guard let url = URL(string: feedUrl) else { return }
     
     let parser = FeedParser(URL: url)
     parser?.parseAsync(result: { (result) in

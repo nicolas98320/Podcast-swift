@@ -28,7 +28,7 @@ class PodcastTableViewCell: UITableViewCell {
       }
     }
     
-    guard let secureImageUrl = URL(string: podcast.artworkUrl600?.toSecureHTTPS() ?? "") else { return }
+    guard let secureImageUrl = URL(string: podcast.artworkUrl600 ?? "") else { return }
     podcastImageView.kf.setImage(with: secureImageUrl)
   }
   
