@@ -27,7 +27,7 @@ class EpisodeTableViewCell: UITableViewCell {
     dateFormatter.dateStyle = .medium
     pubDateLabel.text = dateFormatter.string(from: episode.pubDate)
     
-    let secureImageUrl = URL(string: episode.imageUrl?.toSecureHTTPS() ?? "")
+    let secureImageUrl = URL(string: episode.imageUrl ?? "")
     episodeImageView.kf.setImage(with: secureImageUrl)
   }
     
