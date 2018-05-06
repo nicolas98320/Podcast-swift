@@ -64,10 +64,22 @@ class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
     navigationController?.pushViewController(episodesViewController, animated: true)
   }
   
+  override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    let label = UILabel()
+    label.text = "Please enter a Search Term"
+    label.textAlignment = .center
+    label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+    return label
+  }
+  
   //MARK:- Variable height support
   
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 132
+  }
+  
+  override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return self.podcasts.count > 0 ? 0 : 250
   }
   
 }
