@@ -22,7 +22,5 @@ extension ReuseIdentifier {
   
 }
 
-extension UICollectionViewCell: ReuseIdentifier {}
-extension UITableViewCell: ReuseIdentifier {}
-extension UITableViewHeaderFooterView: ReuseIdentifier {}
+extension UIView: ReuseIdentifier {}
 

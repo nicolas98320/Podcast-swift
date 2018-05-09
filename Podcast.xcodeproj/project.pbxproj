@@ -27,6 +27,8 @@
 		37785F2B2099DF6D0063E60E /* EpisodesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37785F2A2099DF6D0063E60E /* EpisodesViewController.swift */; };
 		37D226EA2098665800F76331 /* PodcastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37D226E92098665800F76331 /* PodcastTableViewCell.xib */; };
 		37D226ED20986D2000F76331 /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D226EC20986D2000F76331 /* UIView+Nib.swift */; };
+		37F7A85320A2FDC500F05395 /* PlayerDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F7A85220A2FDC500F05395 /* PlayerDetailsView.swift */; };
+		37F7A85520A2FDDF00F05395 /* PlayerDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37F7A85420A2FDDF00F05395 /* PlayerDetailsView.xib */; };
 		4DF2788BBF113A2D34F03829 /* Pods_Podcast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C39D97CB8D70AE2FA4C9221C /* Pods_Podcast.framework */; };
 		ADC1523C73073F22DC8FECD1 /* Pods_PodcastUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD4B8849EC9250B38525C19 /* Pods_PodcastUITests.framework */; };
 /* End PBXBuildFile section */
@@ -66,6 +68,8 @@
 		37785F2A2099DF6D0063E60E /* EpisodesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesViewController.swift; sourceTree = "<group>"; };
 		37D226E92098665800F76331 /* PodcastTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PodcastTableViewCell.xib; sourceTree = "<group>"; };
 		37D226EC20986D2000F76331 /* UIView+Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
+		37F7A85220A2FDC500F05395 /* PlayerDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsView.swift; sourceTree = "<group>"; };
+		37F7A85420A2FDDF00F05395 /* PlayerDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerDetailsView.xib; sourceTree = "<group>"; };
 		77A3A684D27CDB6EEFDDE6C2 /* Pods-PodcastUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodcastUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PodcastUITests/Pods-PodcastUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9EE961C49D758124F793F90C /* Pods-PodcastUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodcastUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PodcastUITests/Pods-PodcastUITests.release.xcconfig"; sourceTree = "<group>"; };
 		ACD4B8849EC9250B38525C19 /* Pods_PodcastUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PodcastUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +144,8 @@
 				37785F272099DE5E0063E60E /* EpisodeTableViewCell.xib */,
 				373E972920909C9500E9A5F9 /* PodcastTableViewCell.swift */,
 				37D226E92098665800F76331 /* PodcastTableViewCell.xib */,
+				37F7A85220A2FDC500F05395 /* PlayerDetailsView.swift */,
+				37F7A85420A2FDDF00F05395 /* PlayerDetailsView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -294,6 +300,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37F7A85520A2FDDF00F05395 /* PlayerDetailsView.xib in Resources */,
 				374E5F8920906B2300A5E5C8 /* LaunchScreen.storyboard in Resources */,
 				374E5F8620906B2300A5E5C8 /* Assets.xcassets in Resources */,
 				37D226EA2098665800F76331 /* PodcastTableViewCell.xib in Resources */,
@@ -377,6 +384,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37F7A85320A2FDC500F05395 /* PlayerDetailsView.swift in Sources */,
 				37785F2B2099DF6D0063E60E /* EpisodesViewController.swift in Sources */,
 				37785F232099DC710063E60E /* RSSFeed.swift in Sources */,
 				37785F282099DE5E0063E60E /* EpisodeTableViewCell.swift in Sources */,
