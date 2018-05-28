@@ -11,24 +11,33 @@ import Kingfisher
 
 class EpisodeTableViewCell: UITableViewCell {
 
+  var episode: Episode! {
+    didSet {
+      titleLabel.text = episode.title
+      titleLabel.numberOfLines = 2
+      
+      descriptionLabel.text = episode.description
+      descriptionLabel.numberOfLines = 2
+      
+      let dateFormatter = DateFormatter()
+      dateFormatter.dateStyle = .medium
+      pubDateLabel.text = dateFormatter.string(from: episode.pubDate)
+      
+      let secureImageUrl = URL(string: episode.imageUrl ?? "")
+      episodeImageView.kf.setImage(with: secureImageUrl)
+    }
+  }
+  
+  //MARK:- IB Actions and Outlets
+  
+  @IBOutlet weak var titleLabel: UILabel! {
+    didSet {
+      titleLabel.numberOfLines = 2
+    }
+  }
+  
   @IBOutlet weak var episodeImageView: UIImageView!
   @IBOutlet weak var pubDateLabel: UILabel!
-  @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var descriptionLabel: UILabel!
-  
-  func configure(_ episode: Episode) {
-    titleLabel.text = episode.title
-    titleLabel.numberOfLines = 2
 
-    descriptionLabel.text = episode.description
-    descriptionLabel.numberOfLines = 2
-    
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateStyle = .medium
-    pubDateLabel.text = dateFormatter.string(from: episode.pubDate)
-    
-    let secureImageUrl = URL(string: episode.imageUrl ?? "")
-    episodeImageView.kf.setImage(with: secureImageUrl)
-  }
-    
 }

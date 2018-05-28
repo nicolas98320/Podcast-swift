@@ -49,7 +49,7 @@ class EpisodesViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let window = UIApplication.shared.keyWindow
     let playerDetailsView = Bundle.main.loadNibNamed(PlayerDetailsView.reuseIdentifier, owner: self, options: nil)?.first as! PlayerDetailsView
-    playerDetailsView.configure(episodes[indexPath.row])
+    playerDetailsView.episode = episodes[indexPath.row]
     playerDetailsView.frame = self.view.frame
     window?.addSubview(playerDetailsView)
   }
@@ -60,7 +60,7 @@ class EpisodesViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: EpisodeTableViewCell.reuseIdentifier, for: indexPath) as! EpisodeTableViewCell
-    cell.configure(episodes[indexPath.row])
+    cell.episode = episodes[indexPath.row]
     return cell
   }
   
