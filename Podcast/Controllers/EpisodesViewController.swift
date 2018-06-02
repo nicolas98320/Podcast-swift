@@ -50,7 +50,7 @@ class EpisodesViewController: UITableViewController {
     let window = UIApplication.shared.keyWindow
     let playerDetailsView = Bundle.main.loadNibNamed(PlayerDetailsView.reuseIdentifier, owner: self, options: nil)?.first as! PlayerDetailsView
     playerDetailsView.episode = episodes[indexPath.row]
-    playerDetailsView.frame = self.view.frame
+    playerDetailsView.frame = view.frame
     window?.addSubview(playerDetailsView)
   }
   
@@ -64,10 +64,21 @@ class EpisodesViewController: UITableViewController {
     return cell
   }
   
+  override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+    activityIndicatorView.color = .darkGray
+    activityIndicatorView.startAnimating()
+    return activityIndicatorView
+  }
+  
   //MARK:- Variable height support
   
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 134
+  }
+  
+  override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    return episodes.isEmpty ? 200 : 0
   }
 
 }

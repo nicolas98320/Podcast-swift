@@ -40,7 +40,8 @@ class PlayerDetailsView: UIView {
   
   fileprivate func observePlayerCurrentTime() {
     let interval = CMTimeMake(1, 2)
-    player.addPeriodicTimeObserver(forInterval: interval, queue: .main) { (time) in
+    player.addPeriodicTimeObserver(forInterval: interval, queue: .main) { [weak self] time in
+      guard let `self` = self else { return }
       self.currentTimeLabel.text = time.toDisplayString()
       let durationTime = self.player.currentItem?.duration
       self.durationLabel.text = durationTime?.toDisplayString()
@@ -54,7 +55,7 @@ class PlayerDetailsView: UIView {
     let durationSeconds = CMTimeGetSeconds(player.currentItem?.duration ?? CMTimeMake(1, 1))
     let percentage = currentTimeSeconds / durationSeconds
     
-    self.currentTimeSlider.value = Float(percentage)
+    currentTimeSlider.value = Float(percentage)
   }
   
   override func awakeFromNib() {
@@ -64,9 +65,14 @@ class PlayerDetailsView: UIView {
     
     let time = CMTimeMake(1, 3)
     let times = [NSValue(time: time)]
-    player.addBoundaryTimeObserver(forTimes: times, queue: .main) {
+    player.addBoundaryTimeObserver(forTimes: times, queue: .main) { [weak self] in
+      guard let `self` = self else { return }
       self.enlargeEpisodeImageView()
     }
+  }
+  
+  deinit {
+    print("PlayerDetailsView memory being reclaimed...")
   }
   
   fileprivate func enlargeEpisodeImageView() {
@@ -89,7 +95,7 @@ class PlayerDetailsView: UIView {
   @IBOutlet weak var durationLabel: UILabel!
   @IBOutlet weak var currentTimeLabel: UILabel!
   @IBAction func handleDismiss(_ sender: Any) {
-    self.removeFromSuperview()
+    removeFromSuperview()
   }
   
   @IBOutlet weak var episodeImageView: UIImageView! {
