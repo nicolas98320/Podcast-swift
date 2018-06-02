@@ -21,20 +21,26 @@ class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
     setupTableView()
   }
   
+  var timer: Timer?
+  
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-    APIService.shared.fetchPodcasts(searchText: searchText) { [weak self] podcasts in
-      guard let `self` = self else { return }
-      self.podcasts = podcasts
-      DispatchQueue.main.async {
+    podcasts = []
+    tableView.reloadData()
+    
+    timer?.invalidate()
+    timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { timer in
+      APIService.shared.fetchPodcasts(searchText: searchText) { podcasts in
+        self.podcasts = podcasts
         self.tableView.reloadData()
       }
-    }
+    })
   }
+
   
   //MARK:- Setup PodcastsSearchController
   
   fileprivate func setupSearchBar() {
-    self.definesPresentationContext = true
+    definesPresentationContext = true
     navigationItem.searchController = searchController
     navigationItem.hidesSearchBarWhenScrolling = false
     searchController.dimsBackgroundDuringPresentation = false
@@ -72,6 +78,11 @@ class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
     return label
   }
   
+  var podcastSearchView = PodcastsSearchingView.viewFromNib
+  override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    return podcastSearchView
+  }
+  
   //MARK:- Variable height support
   
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -79,7 +90,11 @@ class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
   }
   
   override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    return self.podcasts.count > 0 ? 0 : 250
+    return self.podcasts.isEmpty && searchController.searchBar.text?.isEmpty == true ? 250 : 0
+  }
+  
+  override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    return podcasts.isEmpty && searchController.searchBar.text?.isEmpty == false ? 200 : 0
   }
   
 }
