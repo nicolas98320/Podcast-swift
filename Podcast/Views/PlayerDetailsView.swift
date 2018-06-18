@@ -60,10 +60,12 @@ class PlayerDetailsView: UIView {
     currentTimeSlider.value = Float(percentage)
   }
   
+  var panGesture: UIPanGestureRecognizer!
+  
   override func awakeFromNib() {
     super.awakeFromNib()
     
-    addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapMaximize)))
+    setupGestures()
     
     observePlayerCurrentTime()
     
@@ -75,9 +77,11 @@ class PlayerDetailsView: UIView {
     }
   }
   
-  @objc func handleTapMaximize() {
-    let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController
-    mainTabBarController?.maximizePlayerDetails(episode: nil)
+  fileprivate func setupGestures() {
+    addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapMaximize)))
+    panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
+    addGestureRecognizer(panGesture)
+    maximizedStackView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handleDismissalPan)))
   }
   
   static func initFromNib() -> PlayerDetailsView {
@@ -128,8 +132,7 @@ class PlayerDetailsView: UIView {
   @IBOutlet weak var currentTimeLabel: UILabel!
   
   @IBAction func handleDismiss(_ sender: Any) {
-    let mainTabBarController =  UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController
-    mainTabBarController?.minimizePlayerDetails()
+    UIApplication.mainTabBarController()?.minimizePlayerDetails()
   }
   
   @IBOutlet weak var episodeImageView: UIImageView! {
