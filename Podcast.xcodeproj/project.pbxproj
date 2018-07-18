@@ -78,7 +78,7 @@
 		37D226EC20986D2000F76331 /* UIView+Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
 		37E7E81820C0EC91007F1033 /* PodcastsSearchingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PodcastsSearchingView.xib; sourceTree = "<group>"; };
 		37E7E81A20C0ED2B007F1033 /* PodcastsSearchingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastsSearchingView.swift; sourceTree = "<group>"; };
-		37F7A85220A2FDC500F05395 /* PlayerDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsView.swift; sourceTree = "<group>"; };
+		37F7A85220A2FDC500F05395 /* PlayerDetailsView.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = PlayerDetailsView.swift; sourceTree = "<group>"; tabWidth = 2; };
 		37F7A85420A2FDDF00F05395 /* PlayerDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerDetailsView.xib; sourceTree = "<group>"; };
 		77A3A684D27CDB6EEFDDE6C2 /* Pods-PodcastUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodcastUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PodcastUITests/Pods-PodcastUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9EE961C49D758124F793F90C /* Pods-PodcastUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodcastUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PodcastUITests/Pods-PodcastUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -284,6 +284,11 @@
 				TargetAttributes = {
 					374E5F7A20906B2300A5E5C8 = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					374E5F8E20906B2300A5E5C8 = {
 						CreatedOnToolsVersion = 9.3;
