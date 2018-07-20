@@ -97,7 +97,7 @@ class PlayerDetailsView: UIView {
       self.player.play()
       self.playPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
       self.miniPlayPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
-      self.setupElapsedTime()
+      self.setupElapsedTime(playbackRate: 1)
       return .success
     }
     
@@ -106,7 +106,7 @@ class PlayerDetailsView: UIView {
       self.player.pause()
       self.playPauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
       self.miniPlayPauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
-      self.setupElapsedTime()
+      self.setupElapsedTime(playbackRate: 0)
       return .success
     }
     
@@ -162,9 +162,10 @@ class PlayerDetailsView: UIView {
     self.episode = nextEpisode
   }
   
-  fileprivate func setupElapsedTime() {
+  fileprivate func setupElapsedTime(playbackRate: Float) {
     let elapsedTime = CMTimeGetSeconds(player.currentTime())
     MPNowPlayingInfoCenter.default().nowPlayingInfo?[MPNowPlayingInfoPropertyElapsedPlaybackTime] = elapsedTime
+    MPNowPlayingInfoCenter.default().nowPlayingInfo?[MPNowPlayingInfoPropertyPlaybackRate] = playbackRate
   }
   
   fileprivate func observeBoundaryTime() {
@@ -192,8 +193,29 @@ class PlayerDetailsView: UIView {
     setupRemoteControl()
     setupAudioSession()
     setupGestures()
+    setupInterruptionObserver()
     observePlayerCurrentTime()
     observeBoundaryTime()
+  }
+  
+  fileprivate func setupInterruptionObserver() {
+    NotificationCenter.default.addObserver(self, selector: #selector(handleInterruption), name: .AVAudioSessionInterruption, object: nil)
+  }
+  
+  @objc fileprivate func handleInterruption(notification: Notification) {
+    guard let userInfo = notification.userInfo else { return }
+    guard let type = userInfo[AVAudioSessionInterruptionTypeKey] as? UInt else { return }
+    if type == AVAudioSessionInterruptionType.began.rawValue {
+      playPauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
+      miniPlayPauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
+    } else {
+      guard let options = userInfo[AVAudioSessionInterruptionOptionKey] as? UInt else { return }
+      if options == AVAudioSessionInterruptionOptions.shouldResume.rawValue {
+        player.play()
+        playPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
+        miniPlayPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
+      }
+    }
   }
   
   fileprivate func setupGestures() {
@@ -208,7 +230,7 @@ class PlayerDetailsView: UIView {
   }
   
   deinit {
-    print("PlayerDetailsView memory being reclaimed...")
+    NotificationCenter.default.removeObserver(self, name: .AVAudioSessionInterruption, object: nil)
   }
   
   fileprivate func enlargeEpisodeImageView() {
@@ -275,11 +297,13 @@ class PlayerDetailsView: UIView {
       playPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
       miniPlayPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
       enlargeEpisodeImageView()
+      self.setupElapsedTime(playbackRate: 1)
     } else {
       player.pause()
       playPauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
       miniPlayPauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
       shrinkEpisodeImageView()
+      self.setupElapsedTime(playbackRate: 0)
     }
   }
   
