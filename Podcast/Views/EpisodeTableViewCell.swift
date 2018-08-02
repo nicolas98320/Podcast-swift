@@ -14,10 +14,7 @@ class EpisodeTableViewCell: UITableViewCell {
   var episode: Episode! {
     didSet {
       titleLabel.text = episode.title
-      titleLabel.numberOfLines = 2
-      
       descriptionLabel.text = episode.description
-      descriptionLabel.numberOfLines = 2
       
       let dateFormatter = DateFormatter()
       dateFormatter.dateStyle = .medium
@@ -35,9 +32,13 @@ class EpisodeTableViewCell: UITableViewCell {
       titleLabel.numberOfLines = 2
     }
   }
-  
+  @IBOutlet weak var descriptionLabel: UILabel! {
+    didSet {
+      descriptionLabel.numberOfLines = 2
+    }
+  }
+  @IBOutlet weak var progressLabel: UILabel!
   @IBOutlet weak var episodeImageView: UIImageView!
   @IBOutlet weak var pubDateLabel: UILabel!
-  @IBOutlet weak var descriptionLabel: UILabel!
 
 }
