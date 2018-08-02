@@ -95,6 +95,15 @@ class EpisodesViewController: UITableViewController {
     return activityIndicatorView
   }
   
+  override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    let downloadAction = UITableViewRowAction(style: .normal, title: "Download") { (_, _) in
+      let episode = self.episodes[indexPath.row]
+      UserDefaults.standard.downloadEpisode(episode: episode)
+      APIService.shared.downloadEpisode(episode: episode)
+    }
+    return [downloadAction]
+  }
+  
   //MARK:- Variable height support
   
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
