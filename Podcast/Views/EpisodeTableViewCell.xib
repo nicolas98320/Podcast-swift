@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -50,12 +50,22 @@
                             </label>
                         </subviews>
                     </stackView>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8d-DL-Dn9">
+                        <rect key="frame" x="28" y="98" width="77" height="34.5"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <size key="shadowOffset" width="0.0" height="1"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Nbd-WG-8kb" firstAttribute="centerY" secondItem="BNM-Qa-oNp" secondAttribute="centerY" id="3LL-Fi-w2E"/>
                     <constraint firstItem="lwO-Dx-lKu" firstAttribute="centerY" secondItem="BNM-Qa-oNp" secondAttribute="centerY" id="6Fb-as-ymQ"/>
                     <constraint firstItem="lwO-Dx-lKu" firstAttribute="leading" secondItem="BNM-Qa-oNp" secondAttribute="leading" constant="16" id="DOe-fP-bVA"/>
+                    <constraint firstItem="l8d-DL-Dn9" firstAttribute="centerX" secondItem="lwO-Dx-lKu" secondAttribute="centerX" id="GJD-Hj-vB2"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Nbd-WG-8kb" secondAttribute="trailing" id="V22-IG-T1r"/>
+                    <constraint firstItem="l8d-DL-Dn9" firstAttribute="centerY" secondItem="lwO-Dx-lKu" secondAttribute="centerY" id="pAM-w9-xPV"/>
                     <constraint firstItem="Nbd-WG-8kb" firstAttribute="leading" secondItem="lwO-Dx-lKu" secondAttribute="trailing" constant="16" id="uTi-cg-VyG"/>
                 </constraints>
             </tableViewCellContentView>
@@ -63,6 +73,7 @@
             <connections>
                 <outlet property="descriptionLabel" destination="YsO-HQ-6f6" id="U62-Wf-Iei"/>
                 <outlet property="episodeImageView" destination="lwO-Dx-lKu" id="Zbn-Ph-7sl"/>
+                <outlet property="progressLabel" destination="l8d-DL-Dn9" id="ryO-cE-nyL"/>
                 <outlet property="pubDateLabel" destination="WMZ-ZY-TR8" id="ML2-xS-lpv"/>
                 <outlet property="titleLabel" destination="d71-74-o0g" id="q92-QG-kZv"/>
             </connections>
