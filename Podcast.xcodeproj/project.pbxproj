@@ -293,6 +293,7 @@
 				TargetAttributes = {
 					374E5F7A20906B2300A5E5C8 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 1000;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -301,6 +302,7 @@
 					};
 					374E5F8E20906B2300A5E5C8 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 1000;
 						TestTargetID = 374E5F7A20906B2300A5E5C8;
 					};
 				};
@@ -605,7 +607,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.desormiere.nicolas.Podcast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -624,7 +626,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.desormiere.nicolas.Podcast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -644,7 +646,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.desormiere.nicolas.PodcastUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Podcast;
 			};
@@ -665,7 +667,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.desormiere.nicolas.PodcastUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Podcast;
 			};
