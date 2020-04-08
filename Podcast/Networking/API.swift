@@ -31,7 +31,7 @@ class APIService {
         NotificationCenter.default.post(name: .downloadComplete, object: episodeDownloadComplete, userInfo: nil)
         
         var downloadedEpisodes = UserDefaults.standard.downloadedEpisodes()
-        guard let index = downloadedEpisodes.index(where: { $0.title == episode.title && $0.author == episode.author }) else { return }
+        guard let index = downloadedEpisodes.firstIndex(where: { $0.title == episode.title && $0.author == episode.author }) else { return }
         downloadedEpisodes[index].fileUrl = resp.destinationURL?.absoluteString ?? ""
         do {
           let data = try JSONEncoder().encode(downloadedEpisodes)

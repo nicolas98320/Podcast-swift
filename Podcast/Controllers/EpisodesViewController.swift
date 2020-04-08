@@ -29,7 +29,7 @@ class EpisodesViewController: UITableViewController {
   
   fileprivate func setupNavigationBarButtons() {
     let savedPodcasts = UserDefaults.standard.savedPodcasts()
-    let hasFavorited = savedPodcasts.index(where: { $0.trackName == self.podcast?.trackName && $0.artistName == self.podcast?.artistName }) != nil
+    let hasFavorited = savedPodcasts.firstIndex(where: { $0.trackName == self.podcast?.trackName && $0.artistName == self.podcast?.artistName }) != nil
     if hasFavorited {
       navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "heart"), style: .plain, target: nil, action: nil)
     } else {

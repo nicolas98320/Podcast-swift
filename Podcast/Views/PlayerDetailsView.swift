@@ -137,16 +137,16 @@ class PlayerDetailsView: UIView {
   }
   
   var playlistEpisodes = [Episode]()
-  
-  @objc fileprivate func handlePrevTrack() {
+
+  @objc fileprivate func handlePrevTrack(_ event: MPRemoteCommandEvent) -> MPRemoteCommandHandlerStatus {
     if playlistEpisodes.isEmpty {
-      return
+      return .noSuchContent
     }
     
-    let currentEpisodeIndex = playlistEpisodes.index { (ep) -> Bool in
+    let currentEpisodeIndex = playlistEpisodes.firstIndex { (ep) -> Bool in
       return self.episode.title == ep.title && self.episode.author == ep.author
     }
-    guard let index = currentEpisodeIndex else { return }
+    guard let index = currentEpisodeIndex else { return .noSuchContent }
     let prevEpisode: Episode
     if index == 0 {
       let count = playlistEpisodes.count
@@ -155,18 +155,19 @@ class PlayerDetailsView: UIView {
       prevEpisode = playlistEpisodes[index - 1]
     }
     self.episode = prevEpisode
+    return .success
   }
   
-  @objc fileprivate func handleNextTrack() {
+  @objc fileprivate func handleNextTrack(_ event: MPRemoteCommandEvent) -> MPRemoteCommandHandlerStatus {
     if playlistEpisodes.count == 0 {
-      return
+      return .noSuchContent
     }
     
-    let currentEpisodeIndex = playlistEpisodes.index { (ep) -> Bool in
+    let currentEpisodeIndex = playlistEpisodes.firstIndex { (ep) -> Bool in
       return self.episode.title == ep.title && self.episode.author == ep.author
     }
     
-    guard let index = currentEpisodeIndex else { return }
+    guard let index = currentEpisodeIndex else { return .noSuchContent }
     
     let nextEpisode: Episode
     if index == playlistEpisodes.count - 1 {
@@ -176,6 +177,7 @@ class PlayerDetailsView: UIView {
     }
     
     self.episode = nextEpisode
+    return .success
   }
   
   fileprivate func setupElapsedTime(playbackRate: Float) {
